@@ -8,29 +8,53 @@ public class BST {
     private int size;
 
     public boolean isAVL() {
-        //TODO: implementar
-        return false;
+        return isAVL(this.root);
+    }
+
+    private boolean isAVL(Node node) {
+        if (node == null) return true;
+        int balance = balance(node);
+        if (balance < -1 || balance > 1) return false;
+        return isAVL(node.left) && isAVL(node.right);
     }
 
     /**
      * Retorna a altura da árvore.
      */
     public int height() {
-        //TODO implementar
-        return -1;
+        return height(this.root);
     }
 
     /**
      * Retorna a altura de um determinado nó. Auxiliar
      * para recursão e para o balance.
      */
+    //altura passando nó como parâmetro
     private int height(Node node) {
-        return -1;
+        if (node == null) return -1;
+        else return 1 + max(height(node.left), height(node.right));
     }
 
+    //altura sem passar nó como parâmetro
+    /*private int height2() {
+        if (this.left == null && this.right == null) return 0;
+        else if (this.left == null) return 1 + this.right.height();
+        else if (this.right == null) return 1 + this.left.height();
+        else return 1 + max(this.left.height(), this.right.height());
+    }*/
+
+    //balance usando nó como parâmetro
     private int balance(Node node) {
-        return -1;
+        if (node != null) return height(node.left) - height(node.right);
+        return 0;
     }
+
+    //balance sem passar o nó como parâmetro 
+    /*private int balance2() {
+        int left = this.left == null ? -1 : this.left.height();
+        int right = this.right == null ? -1 : this.right.height();
+        return left - right;
+    }*/
 
     /**
      * Busca o nó cujo valor é igual ao passado como parâmetro. Essa é a implementação 
@@ -138,6 +162,10 @@ public class BST {
     private Node max(Node node) {
         if (node.right == null) return node;
         else return max(node.right);
+    }
+
+    private int max(int a, int b) {
+        return (a > b) ? a : b;
     }
     
     /**

@@ -1,8 +1,8 @@
 # Identificação
 
-* Nome: 
-* Email (@ccc): 
-* Matrícula: 
+* Nome: Ryan Victor Lucena
+* Email (@ccc): ryan.victor.lucena@ccc.ufcg.edu.br
+* Matrícula: 124110836
 
 # Roteiro: isAVL
 
