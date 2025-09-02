@@ -32,7 +32,7 @@ public class BST {
     //altura passando nó como parâmetro
     private int height(Node node) {
         if (node == null) return -1;
-        else return 1 + max(height(node.left), height(node.right));
+        else return 1 + Math.max(height(node.left), height(node.right));
     }
 
     //altura sem passar nó como parâmetro
